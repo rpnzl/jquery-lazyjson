@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+	<head>
+		<title>LazyJSON Demos</title>
+		<style>
+		* { margin: 0; padding: 0; }
+		html, body { font-family: sans-serif; font-size: 14px; color: #111; }
+		div#wrapper { padding: 30px; }
+		pre { background: #f6f6f6; padding: 20px; border: 1px solid #eee; margin-bottom: 20px; display: none; }
+		ul, li { list-style-type: none; }
+		ul { min-height: 300px; }
+		li { background: #f6f6f6; padding: 8px; margin-bottom: 5px; border: 1px solid #eee; }
+		h1, h2, h3 { padding-bottom: 10px; margin-bottom: 20px; border-bottom: 1px solid #ddd; }
+		h2 > small { font-size: 0.6em; color: #555; }
+		p { margin-bottom: 30px; }
+		div.example { margin-bottom: 50px; }
+		a.btn { color: #eee; font-size: 16px; text-decoration: none; background: #222; padding: 10px 15px; margin: 20px 0; display: inline-block; }
+		</style>
+	</head>
+	<body>
+
+		<div id="wrapper">
+
+			<h1>LazyJSON Demos</h1>
+			<p>
+			Here are a few quick examples of plugin usage. We'll utilize a 'database' of members of the Baggins family... turns out Bilbo had quite a few cousins. Take a look at the included <code>api.php</code> to see how the JSON is processed and returned.
+			</p>
+
+
+			<!-- Buttons & API Pagination -->
+			<div class="example">
+				<h2>
+					Buttons &amp; API Pagination
+					<small>Show Code</small>
+				</h2>
+
+				<pre>
+				$( 'ul#buttons' ).lazyjson({
+			        	childEl: 'li',
+			        	loaderImg: 'img/loader.gif',
+			        	pagination: {
+			            		active: true,
+			            		pages: 1,
+			            		count: 10
+			        	},
+			        	api: {
+			            		uri: 'api.php',
+			            		pagination: true
+			        	}
+				});
+				</pre>
+
+				<ul id="buttons">
+
+					<!-- template -->
+					<li id="template-buttons" style="display:none;">
+						<span>{{id}} - {{data.first_name}} {{data.last_name}}</span>
+					</li>
+					<!-- /template -->
+
+				</ul>
+				<a href="#" class="btn previous">Previous</a>
+				<a href="#" class="btn next">Next</a>
+			</div>
+			<!-- /Buttons & API Pagination -->
+
+
+			<!-- Custom Events -->
+			<div class="example">
+				<h2>
+					Using A Custom Event
+					<small>Show Code</small>
+				</h2>
+
+				<pre>
+				$( 'ul#custom_event' ).lazyjson({
+				        childEl: 'li',
+				        loaderImg: 'img/loader.gif',
+				        pagination: {
+					            active: true,
+					            pages: 1,
+					            count: 10,
+					            loadOnEvent: 'click',
+					            loadOnTarget: 'list-more'
+				        },
+				        api: {
+				    	        uri: 'api.php'
+				        }
+				});
+				</pre>
+
+				<ul id="custom_event">
+
+					<!-- template -->
+					<li id="template-custom_event" style="display:none;">
+						<span>{{id}} - {{data.first_name}} {{data.last_name}}</span>
+					</li>
+					<!-- /template -->
+
+				</ul>
+				<a href="#" class="btn" id="list-more">Load More</a>
+			</div>
+			<!-- /Custom Events -->
+
+
+			<!-- Lazy Load -->
+			<div class="example">
+				<h2>
+					Using Lazy Load
+					<small>Show Code</small>
+				</h2>
+
+				<pre>
+				$( 'ul#lazy_load' ).lazyjson({
+				        childEl: 'li',
+				        loaderImg: 'img/loader.gif',
+				        pagination: {
+					            active: true,
+					            pages: 2,
+					            count: 10,
+					            lazyLoad: true
+				        },
+				        api: {
+				            	uri: 'api.php'
+				        }
+				});
+				</pre>
+
+				<ul id="lazy_load">
+
+					<!-- template -->
+					<li id="template-lazy_load" style="display:none;">
+						<span>{{id}} - {{data.first_name}} {{data.last_name}}</span>
+					</li>
+					<!-- /template -->
+
+				</ul>
+			</div>
+			<!-- /Lazy Load -->
+
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+		<script src="../waypoints.min.js"></script>
+		<script src="../jquery.lazyjson.js"></script>
+		<script>
+		$(document).ready(function() {
+
+			// Code snippets
+			$( 'h2' ).on( 'click', 'small', function( evt ) {
+				evt.preventDefault();
+				$( this ).parent().next( 'pre' ).slideToggle('fast');
+			});
+
+
+			// Buttons & API Pagination
+			$( 'ul#buttons' ).lazyjson({
+				debug: true,
+		        childEl: 'li',
+		        loaderImg: 'img/loader.gif',
+		        pagination: {
+		            active: true,
+		            pages: 1,
+		            count: 10
+		        },
+		        api: {
+		            uri: 'api.php',
+		            pagination: true
+		        }
+			});
+
+
+			// Custom Event
+			$( 'ul#custom_event' ).lazyjson({
+		        childEl: 'li',
+		        loaderImg: 'img/loader.gif',
+		        pagination: {
+		            active: true,
+		            pages: 1,
+		            count: 10,
+		            loadOnEvent: 'click',
+		            loadOnTarget: 'list-more'
+		        },
+		        api: {
+		            uri: 'api.php'
+		        }
+			});
+
+
+			// Lazy Load
+			$( 'ul#lazy_load' ).lazyjson({
+		        childEl: 'li',
+		        loaderImg: 'img/loader.gif',
+		        pagination: {
+		            active: true,
+		            pages: 2,
+		            count: 10,
+		            lazyLoad: true
+		        },
+		        api: {
+		            uri: 'api.php'
+		        }
+			});
+
+		});
+		</script>
+	</body>
+</html>
