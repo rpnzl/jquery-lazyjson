@@ -6,6 +6,8 @@
  *
  */
 
+// working on template cloning and hiding them
+
 (function (window, console, $) {
 
 	'use strict';
@@ -62,7 +64,6 @@
 					// Next Button
 					$(_this.parent()).on('click', options.pagination.nextBtn, function (evt) {
 						evt.preventDefault();
-						$('.lazyjson-template', _this).remove();
 						currEvent = 'nextBtn';
 						_this.load();
 					});
@@ -70,7 +71,6 @@
 					// Prev Button
 					$(_this.parent()).on('click', options.pagination.prevBtn, function (evt) {
 						evt.preventDefault();
-						$('.lazyjson-template', _this).remove();
 						currEvent = 'prevBtn';
 						_this.load();
 					});
@@ -81,10 +81,6 @@
 						// Bind event
 						$('body').on(options.pagination.loadOnEvent, '#' + options.pagination.loadOnTarget, function (evt) {
 							evt.preventDefault();
-							// Append results?
-							if (!options.pagination.appendResults) {
-								$('.lazyjson-template', _this).remove();
-							}
 							currEvent = 'custom';
 							_this.load();
 						});
@@ -156,6 +152,12 @@
 				// Loading flag
 				loading = true;
 
+				// Remove items
+				if (!options.pagination.appendResults && currEvent !== 'lazyLoad'
+					|| $.inArray(currEvent, ['nextBtn', 'prevBtn']) !== -1) {
+					$('.lazyjson-template', _this).remove();
+				}
+
 				// Page Increase / Decrease
 				if ($.inArray(currEvent, pageUpEvents) !== -1) {
 					page += 1;
@@ -176,6 +178,11 @@
 
 				// Is pagination activated?
 				if (options.pagination.active) {
+
+					// Prevent page reaching 0 or lower
+					if (page <= 0) {
+						page = 1;
+					}
 
 					// If this is the first load
 					if (init) {
@@ -239,7 +246,7 @@
 					// Prevent load from firing
 					setTimeout(function () {
 						loading = false;
-					}, 1000);
+					}, 800);
 
 					// afterLoad Callback
 					options.afterLoad();
@@ -258,7 +265,7 @@
 
 			// Is it a valid JSON object?
 			if (typeof json !== 'object') {
-				_this.debug('error', 'The response must be a valid JSON object.');
+				_this.debug('invalidJSON', 'error', 'The response must be a valid JSON object.');
 
 				// Append any string response
 				if (typeof json === 'string') {
@@ -270,7 +277,18 @@
 					// Clone, parse, and append to the template
 					var clone   = template.clone(),
 						html    = _this.parseObj(clone.html(), v);
-					$(_this).append(clone.html(html).addClass('lazyjson-template').hide().delay(options.delay * k).fadeIn('fast')).stop();
+
+					clone.html(html).addClass('lazyjson-template').appendTo(_this);
+					if(options.effect !== null) {
+						clone.hide();
+						setTimeout(function () {
+							if (options.effect === 'fadeIn') {
+								clone.fadeIn('fast');
+							} else if (options.effect === 'slideDown') {
+								clone.slideDown('fast');
+							}
+						}, options.delay * k);
+					}
 				});
 			}
 		};
@@ -351,6 +369,7 @@
 		loader: '<div id="lj-loader" style="text-align:center;padding:20px;"><img /></div>',
 		loaderImg: null,
 		delay: 50,
+		effect: null,
 		pagination: {
 			active: false,
 			pages: 1,
