@@ -1,12 +1,14 @@
-/*!
- * lazyJSON - jQuery Plugin
- * version: 1.0.0 (Wed, 10 Oct 2012)
+/*
+ * LazyJSON Plugin
+ * Version: 1.0.0 (Mon, 15 Oct 2012)
+ * https://github.com/rpnzl/jquery-lazyjson
  *
- * Copyright 2012 Michael Giuliana - michael.giuliana@gmail.com
+ * Copyright 2012, Michael Giuliana
+ * http://rpnzl.com
  *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
  */
-
-// working on template cloning and hiding them
 
 (function (window, console, $) {
 
@@ -24,6 +26,7 @@
 			pageDownEvents  = [ 'prevBtn' ],
 			currEvent       = null,
 			loading         = false,
+			lastPage		= false,
 			data            = {},
 			template,
 			options         = $.extend(true, {}, $.fn.lazyjson.defaults, settings);
@@ -132,8 +135,15 @@
 			}
 
 			// Loader Setup
-			options.loader = $(options.loader);
-			options.loader.children('img').attr('src', options.loaderImg);
+			if (!(options.loader instanceof jQuery)) {
+				options.loader = $(options.loader);
+				options.loader.children('img').attr('src', options.loaderImg);
+			}
+
+			// No Results
+			if (!(options.noResults instanceof jQuery)) {
+				options.noResults = $(options.noResults).text(options.noResultsText);
+			}
 		};
 
 
@@ -159,7 +169,7 @@
 				}
 
 				// Page Increase / Decrease
-				if ($.inArray(currEvent, pageUpEvents) !== -1) {
+				if ($.inArray(currEvent, pageUpEvents) !== -1 && lastPage === false) {
 					page += 1;
 				} else if ($.inArray(currEvent, pageDownEvents) !== -1) {
 					page -= 1;
@@ -213,23 +223,27 @@
 
 					type: options.api.httpMethod.toUpperCase(),
 					url: options.api.uri,
-					data: data
+					data: data,
+					dataType: _this.getDataType()
 
 				}).done(function (res) {
-
-					// Parse JSON
-					res = $.parseJSON(res);
-
-					// If the plugin is handling pagination
+					// Does JSON exist?
 					if (res) {
+						// If the plugin is handling pagination
 						if (options.pagination.active && !options.api.pagination) {
-
 							// Return a slice
 							res = res.slice(offset, offset + count);
 						}
 
-						// Build the template
-						_this.build(res);
+						// Last page flag
+						if (res.length === 0) {
+							lastPage = true;
+							_this.append(options.noResults);
+						} else {
+							lastPage = false;
+							options.noResults.remove();
+							_this.build(res);
+						}
 					}
 
 					// Reset pages and count if this was the initial load
@@ -238,8 +252,9 @@
 						count = options.pagination.count;
 					}
 
+				}).fail(function(jqxhr, textStatus) {
+					// Failure actions
 				}).always(function () {
-
 					// Hide loader
 					_this.loader(false);
 
@@ -321,16 +336,39 @@
 					}
 
 					// If the property is an object, parse it, too
-					if (typeof v === 'object') {
+					if (typeof v === 'object' && k) {
 						html = _this.parseObj(html, v, parent_key + k);
 					} else {
 						var regex = new RegExp('{{' + parent_key + k + '}}', 'g');
 						html = html.replace(regex, v);
 					}
 				});
+			} else if (typeof value === 'string') {
+				var regex = new RegExp('{{value}}', 'g');
+				html = html.replace(regex, value);
 			}
 
 			return html;
+		};
+
+
+		/*
+		getDataType
+		-----
+		Evaluates the API URI and it's parameters, then returns either
+		JSON or JSONP depending on whether it's local or remote.
+		*/
+		_this.getDataType = function () {
+			var currentUri = document.createElement('a'),
+				apiUri = document.createElement('a');
+			currentUri.href = document.URL;
+			apiUri.href = options.api.uri;
+
+			if(apiUri.hostname === currentUri.hostname) {
+				return 'json';
+			} else {
+				return 'jsonp';
+			}
 		};
 
 
@@ -367,6 +405,8 @@
 		debug: false,
 		loadOnInit: true,
 		loader: '<div id="lj-loader" style="text-align:center;padding:20px;"><img /></div>',
+		noResults: '<div id="lj-noresponse" style="text-align:center;padding:20px;"></div>',
+		noResultsText: 'No Results Found',
 		loaderImg: null,
 		delay: 50,
 		effect: null,
