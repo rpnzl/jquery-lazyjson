@@ -9,9 +9,17 @@ After fruitless searches around the web for an easy to implement, lazyload-type 
 
 ### Table of Contents
 
+[Installation](#installation)
 
+[Important Notes](#important)
 
-###Installation
+[Usage](#usage)
+
+[Quick Start](#usage-quickstart)
+
+[Options](#options)
+
+###Installation<a id="installation"/>
 
 Be sure you have the latest version of jQuery and the LazyJSON files included on your site.
 
@@ -19,14 +27,14 @@ Be sure you have the latest version of jQuery and the LazyJSON files included on
     <script src="js/jquery.lazyjson.min.js"></script>
 
 
-###Important Notes
+###Important Notes<a id="important"/>
 
 Due to <a href="http://en.wikipedia.org/wiki/Same_origin_policy" target="_blank">same origin policy</a>, remote API endpoints **must** support JSONP. Local API endpoints default to a plain JSON AJAX request, but you can force a local JSONP request if needed.
 
 
-###Usage
+###Usage<a id="usage"/>
 
-#### Quick Setup
+####Quick Start<a id="usage-quickstart"/>
 
 An example of basic setup - the bare necessities.
 
@@ -79,4 +87,66 @@ An example of basic setup - the bare necessities.
 	});
 
 
-###Options
+###Options<a id="options"/>
+
+These are the available plugin options, with defaults set below.
+
+	$( 'div#lazyjson' ).lazyjson({
+		
+		// The template element's HTML tag
+		childEl: 'div',
+		
+		// The template element's ID prefix (in this case, "template-lazyjson")
+		templatePrefix: 'template-',
+		
+		// Turn debug mode on or off
+		debug: false,
+		
+		// Fire the first API call on page load
+		loadOnInit: true,
+		
+		// The loader element, will also accept a jQuery object
+		loader: '<div id="lj-loader" style="text-align:center;padding:20px;"><img /></div>',
+		
+		// Element displayed when results don't exist, will also accept a jQuery object
+		noResults: '<div id="lj-noresponse" style="text-align:center;padding:20px;"></div>',
+		
+		// Text to display in default noResults element
+		noResultsText: 'No Results Found',
+		
+		// The URL or path to the loader image to assign to the loader object
+		loaderImg: null,
+		
+		// The delay between display of animated results
+		delay: 50,
+		
+		// Set an animation for result display, currently accepts 'slideDown' and 'fadeIn'
+		effect: null,
+		
+		pagination: {
+			active: false,
+			pages: 1,
+			count: 10,
+			appendResults: false,
+			lazyLoad: false,
+			nextBtn: 'a.next',
+			prevBtn: 'a.previous',
+			loadOnEvent: null,
+			loadOnTarget: null
+		},
+		api: {
+			uri: null,
+			httpMethod: 'GET',
+			pagination: false,
+			pagesKey: 'page',
+			limitKey: 'limit',
+			offsetKey: 'offset',
+			params: null
+		},
+		
+		/*
+		 * Callbacks
+		 */
+		afterLoad: function () {},
+		beforeLoad: function () {}
+	);
