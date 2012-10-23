@@ -9,15 +9,11 @@ After fruitless searches around the web for an easy to implement, lazyload-type 
 
 ### Table of Contents
 
-[Installation](#installation)
-
-[Important Notes](#important)
-
-[Usage](#usage)
-
-[Quick Start](#usage-quickstart)
-
-[Options](#options)
+- [Installation](#installation)
+- [Important Notes](#important)
+- [Usage](#usage)
+- [Quick Start](#usage-quickstart)
+- [Options](#options)
 
 ###Installation<a id="installation"/>
 
@@ -75,12 +71,6 @@ An example of basic setup - the bare necessities.
 **JS**
 
 	$( 'div#lazyjson' ).lazyjson({
-		loaderImg: '/img/loader.gif',
-		pagination: {
-			active: true,
-			pages: 1,
-			count: 10,
-		},
 		api: {
 			uri: 'YOUR_API_ENDPOINT'
 		}
@@ -93,60 +83,118 @@ These are the available plugin options, with defaults set below.
 
 	$( 'div#lazyjson' ).lazyjson({
 		
-		// The template element's HTML tag
-		childEl: 'div',
-		
-		// The template element's ID prefix (in this case, "template-lazyjson")
-		templatePrefix: 'template-',
-		
-		// Turn debug mode on or off
-		debug: false,
-		
 		// Fire the first API call on page load
 		loadOnInit: true,
+
+		/*----------------------
+		 * Templating
+		 *---------------------*/
+		
+		// The template element's ID prefix (e.g. "#template-lazyjson" for $('#lazyjson').lazyjson())
+		templatePrefix: 'template-',
 		
 		// The loader element, will also accept a jQuery object
 		loader: '<div id="lj-loader" style="text-align:center;padding:20px;"><img /></div>',
 		
+		// The URL or path to the loader image to assign to the loader object
+		loaderImg: null,
+
 		// Element displayed when results don't exist, will also accept a jQuery object
 		noResults: '<div id="lj-noresponse" style="text-align:center;padding:20px;"></div>',
 		
 		// Text to display in default noResults element
 		noResultsText: 'No Results Found',
 		
-		// The URL or path to the loader image to assign to the loader object
-		loaderImg: null,
-		
+		/*----------------------
+		 * Effects
+		 *---------------------*/
+
 		// The delay between display of animated results
 		delay: 50,
 		
 		// Set an animation for result display, currently accepts 'slideDown' and 'fadeIn'
 		effect: null,
 		
+		/*----------------------
+		 * Pagination
+		 *---------------------*/
+
 		pagination: {
+			
+			// Turn pagination on or off
 			active: false,
+			
+			// The # of pages to load on init
 			pages: 1,
+			
+			// The # of results to load per page
 			count: 10,
+			
+			// Append results to container without replacing current set
 			appendResults: false,
+			
+			/*
+			Load Events
+			*/
+			
+			// Activate lazy load, overrides other load events
 			lazyLoad: false,
+			
+			// jQuery selector for next result set button
 			nextBtn: 'a.next',
+			
+			// jQuery selector for previous result set button
 			prevBtn: 'a.previous',
+			
+			// Set a custom load event (click, blur, focus, hover, etc.)
 			loadOnEvent: null,
+			
+			// jQuery selector for the custom event target
 			loadOnTarget: null
 		},
-		api: {
-			uri: null,
-			httpMethod: 'GET',
-			pagination: false,
-			pagesKey: 'page',
-			limitKey: 'limit',
-			offsetKey: 'offset',
-			params: null
-		},
 		
-		/*
+		/*----------------------
+		 * API
+		 *---------------------*/
+
+		api: {
+			
+			// The API endpoint, local or remote
+			uri: null,
+			
+			// GET or POST request
+			httpMethod: 'GET',
+
+			// Force JSONP on local requests
+			forceJSONP: false,
+			
+			// Send pagination vars to API in AJAX request
+			pagination: false,
+			
+			// Set key of current page # param sent in API request
+			pagesKey: 'page',
+			
+			// Set key of limit param sent in API request
+			limitKey: 'limit',
+			
+			// Set key of offset param sent in API request
+			offsetKey: 'offset',
+
+			// Additional params to send with each request
+			params: {}
+		},
+
+		/*----------------------
+		 * Debug
+		 *---------------------*/
+
+		// Turn debug mode on or off
+		debug: false,
+		
+		/*----------------------
 		 * Callbacks
-		 */
-		afterLoad: function () {},
-		beforeLoad: function () {}
+		 *---------------------*/
+		
+		// Fires after load event
+		afterLoad: function (res) {}
 	);

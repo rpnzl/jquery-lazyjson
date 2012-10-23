@@ -28,6 +28,7 @@
 			loading         = false,
 			lastPage		= false,
 			data            = {},
+			response		= null,
 			template,
 			options         = $.extend(true, {}, $.fn.lazyjson.defaults, settings);
 
@@ -35,7 +36,7 @@
 		/*
 		Initialize
 		----------
-		Check for necessary items (waypoints, template, etc.), set paging vars,
+		Check options for validity, run first load if needed, bind events.
 		*/
 		_this.init = function () {
 
@@ -61,6 +62,16 @@
 						}
 					});
 
+				// Custom Event
+				} else if (options.pagination.loadOnEvent && options.pagination.loadOnTarget) {
+
+					// Bind event
+					$('body').on(options.pagination.loadOnEvent, options.pagination.loadOnTarget, function (evt) {
+						evt.preventDefault();
+						currEvent = 'custom';
+						_this.load();
+					});
+
 				// Buttons
 				} else {
 
@@ -77,17 +88,6 @@
 						currEvent = 'prevBtn';
 						_this.load();
 					});
-
-					// Custom Event
-					if (options.pagination.loadOnEvent && options.pagination.loadOnTarget) {
-
-						// Bind event
-						$('body').on(options.pagination.loadOnEvent, '#' + options.pagination.loadOnTarget, function (evt) {
-							evt.preventDefault();
-							currEvent = 'custom';
-							_this.load();
-						});
-					}
 				}
 			}
 		};
@@ -115,26 +115,19 @@
 		*/
 		_this.checkOpts = function () {
 
-			// Template
+			/*----------------------
+			 * Templating
+			 *---------------------*/
+
 			// Check that the object exists, clone it, remove identifiers, then remove it
-			if (!$(options.childEl + '#' + options.templatePrefix + $(_this).attr('id')).length) {
+			if (!$('#' + options.templatePrefix + $(_this).attr('id')).length) {
 				_this.debug('templateNotFound', 'error', 'The template object was not found.');
 			} else {
-				template = $(options.childEl + '#' + options.templatePrefix + $(_this).attr('id')).clone().removeAttr('id').removeAttr('style');
+				template = $('#' + options.templatePrefix + $(_this).attr('id')).clone().removeAttr('id').removeAttr('style');
 				$('#' + options.templatePrefix + $(_this).attr('id')).remove();
 			}
 
-			// API URI
-			if (!options.api.uri) {
-				_this.debug('invalidApiUri', 'error', 'Please provide an API endpoint in options.api.uri .');
-			}
-
-			// API HTTP Method
-			if (!options.api.httpMethod || $.inArray(options.api.httpMethod, [ 'GET', 'POST' ]) === -1) {
-				_this.debug('invalidHttpMethod', 'error', 'Please provide a valid HTTP method.');
-			}
-
-			// Loader Setup
+			// Loader
 			if (!(options.loader instanceof jQuery)) {
 				options.loader = $(options.loader);
 				options.loader.children('img').attr('src', options.loaderImg);
@@ -143,6 +136,20 @@
 			// No Results
 			if (!(options.noResults instanceof jQuery)) {
 				options.noResults = $(options.noResults).text(options.noResultsText);
+			}
+
+			/*----------------------
+			 * API
+			 *---------------------*/
+
+			// URI
+			if (!options.api.uri) {
+				_this.debug('invalidApiUri', 'error', 'Please provide an API endpoint in options.api.uri .');
+			}
+
+			// httpMethod
+			if (!options.api.httpMethod || $.inArray(options.api.httpMethod, [ 'GET', 'POST' ]) === -1) {
+				_this.debug('invalidHttpMethod', 'error', 'Please provide a valid HTTP method.');
 			}
 		};
 
@@ -229,20 +236,24 @@
 				}).done(function (res) {
 					// Does JSON exist?
 					if (res) {
+
+						// Set global
+						response = res;
+
 						// If the plugin is handling pagination
 						if (options.pagination.active && !options.api.pagination) {
 							// Return a slice
-							res = res.slice(offset, offset + count);
+							response = response.slice(offset, offset + count);
 						}
 
 						// Last page flag
-						if (res.length === 0) {
+						if (response.length === 0) {
 							lastPage = true;
 							_this.append(options.noResults);
 						} else {
 							lastPage = false;
 							options.noResults.remove();
-							_this.build(res);
+							_this.build(response);
 						}
 					}
 
@@ -264,7 +275,7 @@
 					}, 800);
 
 					// afterLoad Callback
-					options.afterLoad();
+					options.afterLoad(response);
 				});
 			}
 		};
@@ -364,7 +375,7 @@
 			currentUri.href = document.URL;
 			apiUri.href = options.api.uri;
 
-			if(apiUri.hostname === currentUri.hostname) {
+			if(apiUri.hostname === currentUri.hostname && !options.api.forceJSONP) {
 				return 'json';
 			} else {
 				return 'jsonp';
@@ -393,6 +404,7 @@
 		*/
 		if ($(this).length !== 0) {
 			_this.init();
+			_this.debug('options', 'notice', options);
 		} else {
 			_this.debug('invalidMainElement', 'error', 'The main object ' + this + ' does not exist.');
 		}
@@ -400,38 +412,121 @@
 
 	// Defaults
 	$.fn.lazyjson.defaults = {
-		childEl: 'div',
-		templatePrefix: 'template-',
-		debug: false,
+
+		// Fire the first API call on page load
 		loadOnInit: true,
+
+		/*----------------------
+		 * Templating
+		 *---------------------*/
+		
+		// The template element's ID prefix (e.g. "#template-lazyjson" for $('#lazyjson').lazyjson())
+		templatePrefix: 'template-',
+		
+		// The loader element, will also accept a jQuery object
 		loader: '<div id="lj-loader" style="text-align:center;padding:20px;"><img /></div>',
-		noResults: '<div id="lj-noresponse" style="text-align:center;padding:20px;"></div>',
-		noResultsText: 'No Results Found',
+		
+		// The URL or path to the loader image to assign to the loader object
 		loaderImg: null,
+
+		// Element displayed when results don't exist, will also accept a jQuery object
+		noResults: '<div id="lj-noresponse" style="text-align:center;padding:20px;"></div>',
+		
+		// Text to display in default noResults element
+		noResultsText: 'No Results Found',
+		
+		/*----------------------
+		 * Effects
+		 *---------------------*/
+
+		// The delay between display of animated results
 		delay: 50,
+		
+		// Set an animation for result display, currently accepts 'slideDown' and 'fadeIn'
 		effect: null,
+		
+		/*----------------------
+		 * Pagination
+		 *---------------------*/
+
 		pagination: {
+			
+			// Turn pagination on or off
 			active: false,
+			
+			// The # of pages to load on init
 			pages: 1,
+			
+			// The # of results to load per page
 			count: 10,
+			
+			// Append results to container without replacing current set
 			appendResults: false,
+			
+			/*
+			Load Events
+			*/
+			
+			// Activate lazy load, overrides other load events
 			lazyLoad: false,
+			
+			// jQuery selector for next result set button
 			nextBtn: 'a.next',
+			
+			// jQuery selector for previous result set button
 			prevBtn: 'a.previous',
+			
+			// Set a custom load event (click, blur, focus, hover, etc.)
 			loadOnEvent: null,
+			
+			// jQuery selector for the custom event target
 			loadOnTarget: null
 		},
+		
+		/*----------------------
+		 * API
+		 *---------------------*/
+
 		api: {
+			
+			// The API endpoint, local or remote
 			uri: null,
+			
+			// GET or POST request
 			httpMethod: 'GET',
+
+			// Force JSONP on local requests
+			forceJSONP: false,
+			
+			// Send pagination vars to API in AJAX request
 			pagination: false,
+			
+			// Set key of current page # param sent in API request
 			pagesKey: 'page',
+			
+			// Set key of limit param sent in API request
 			limitKey: 'limit',
+			
+			// Set key of offset param sent in API request
 			offsetKey: 'offset',
-			params: null
+
+			// Additional params to send with each request
+			params: {}
 		},
-		afterLoad: function () {},
-		beforeLoad: function () {}
+
+		/*----------------------
+		 * Debug
+		 *---------------------*/
+
+		// Turn debug mode on or off
+		debug: false,
+		
+		/*----------------------
+		 * Callbacks
+		 *---------------------*/
+		
+		// Fires after load event
+		afterLoad: function (res) {}
 	};
 
 })(window, console, jQuery);
