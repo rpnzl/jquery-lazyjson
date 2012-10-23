@@ -191,7 +191,7 @@
 				_this.loader(true);
 
 				// Merge our data with addl. data
-				data = $.extend(true, data, $(_this).data(), options.params);
+				data = $.extend(true, data, $(_this).data(), options.api.params);
 
 				// Is pagination activated?
 				if (options.pagination.active) {
