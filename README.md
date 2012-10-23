@@ -9,25 +9,23 @@ After fruitless searches around the web for an easy to implement, lazyload-type 
 
 ### Table of Contents
 
-<div class="toc">
-	<ul>
-		<li>
-			<a href="#installation">Installation</a>
-		</li>
-		<li>
-			<a href="#important">Important Notes</a>
-		</li>
-		<li>
-			<a href="#usage">Usage</a>
-		</li>
-		<li>
-			<a href="#usage-quickstart">Quick Start</a>
-		</li>
-		<li>
-			<a href="#options">Options</a>
-		</li>
-	</ul>
-</div>
+<ul class="toc">
+	<li>
+		<a href="#installation">Installation</a>
+	</li>
+	<li>
+		<a href="#important">Important Notes</a>
+	</li>
+	<li>
+		<a href="#usage">Usage</a>
+	</li>
+	<li>
+		<a href="#usage-quickstart">Quick Start</a>
+	</li>
+	<li>
+		<a href="#options">Options</a>
+	</li>
+</ul>
 
 ###Installation<a id="installation"/>
 
