@@ -27,7 +27,7 @@ After fruitless searches around the web for an easy to implement, lazyload-type 
 	</li>
 </ul>
 
-###Installation<a id="installation"/>
+###<a id="installation">Installation</a>
 
 Be sure you have the latest version of jQuery and the LazyJSON files included on your site.
 
@@ -35,14 +35,14 @@ Be sure you have the latest version of jQuery and the LazyJSON files included on
     <script src="js/jquery.lazyjson.min.js"></script>
 
 
-###Important Notes<a id="important"/>
+###<a id="important">Important Notes</a>
 
 Due to <a href="http://en.wikipedia.org/wiki/Same_origin_policy" target="_blank">same origin policy</a>, remote API endpoints **must** support JSONP. Local API endpoints default to a plain JSON AJAX request, but you can force a local JSONP request if needed.
 
 
-###Usage<a id="usage"/>
+###<a id="usage">Usage</a>
 
-####Quick Start<a id="usage-quickstart"/>
+####<a id="usage-quickstart">Quick Start</a>
 
 An example of basic setup - the bare necessities.
 
@@ -89,7 +89,7 @@ An example of basic setup - the bare necessities.
 	});
 
 
-###Options<a id="options"/>
+###<a id="options">Options</a>
 
 These are the available plugin options, with defaults set below.
 
