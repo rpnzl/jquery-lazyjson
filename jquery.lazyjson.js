@@ -237,6 +237,14 @@
 					// Does JSON exist?
 					if (res) {
 
+						// Traverse response
+						if(options.api.dataPos) {
+							var dataPos = options.api.dataPos.split('.');
+							for (var i = 0; i < dataPos.length; i++) {
+								res = res[dataPos[i]];
+							}
+						}
+
 						// Set global
 						response = res;
 
@@ -498,6 +506,9 @@
 			// Force JSONP on local requests
 			forceJSONP: false,
 			
+			// Use a property of the response object as the data array (e.g. 'property.inner_array')
+			dataPos: false,
+
 			// Send pagination vars to API in AJAX request
 			pagination: false,
 			
