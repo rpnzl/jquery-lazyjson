@@ -364,7 +364,15 @@
                 i++;
             };
 
-            if (attrs.exists && value !== false && typeof value !== 'undefined') {
+            if (attrs.ifVal && attrs.ifVal.indexOf(value) !== -1) {
+                var ifs = attrs.ifVal.split(',');
+                for (var i = 0; i < ifs.length; i++) {
+                    var segments = ifs[i].split('::');
+                    if (value === segments[0]) {
+                        return segments[1];
+                    }
+                };
+            } else if (attrs.exists && value !== false && typeof value !== 'undefined') {
                 return attrs.exists || match;
             } else if (attrs.empty && (typeof value === 'undefined' || value === false)) {
                 return attrs.empty || match;
