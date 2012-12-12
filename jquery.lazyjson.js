@@ -334,8 +334,7 @@
         /*
         extractVal
         ----------
-        Finds and returns the desired property within an object. Also
-        processes attributes for altered return values (e.g. exists).
+        Finds and returns the desired property within an object.
         */
         _this.extractVal = function (obj, key) {
             if (key.indexOf('.') !== -1) {
@@ -343,7 +342,7 @@
                     key    = key.slice(topKey.length + 1, key.length);
                 return _this.extractVal(obj[topKey], key);
             } else {
-                return obj[key];
+                return obj[key] || false;
             }
         }
 
