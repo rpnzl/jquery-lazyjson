@@ -123,7 +123,7 @@
             if (!$('#' + options.templatePrefix + $(_this).attr('id')).length) {
                 _this.debug('templateNotFound', 'error', 'The template object was not found.');
             } else {
-                template = $('#' + options.templatePrefix + $(_this).attr('id')).clone().removeAttr('id').removeAttr('style');
+                template = $('#' + options.templatePrefix + $(_this).attr('id'), _this).clone().removeAttr('id').removeAttr('style');
                 $('#' + options.templatePrefix + $(_this).attr('id')).remove();
             }
 
@@ -306,6 +306,10 @@
                     $(_this.append('<p>' + json + '</p>'));
                 }
             } else {
+                if (options.debug) {
+                    _this.debug('response', 'notice', json);
+                }
+
                 // For each of the array objects
                 $.each(json, function (k, v) {
                     // Set global
@@ -342,7 +346,11 @@
                     key    = key.slice(topKey.length + 1, key.length);
                 return _this.extractVal(obj[topKey], key);
             } else {
-                return obj[key] || false;
+                if (obj !== null && typeof obj[key] !== 'undefined') {
+                    return obj[key];
+                } else {
+                    return false;
+                }
             }
         }
 
@@ -354,13 +362,13 @@
         returns the appropriate value.
         */
         _this.parseFlag = function (match) {
-            var key      = match.split(' ')[0].replace(/[{{|}}]/g, ''),
+            var key      = match.split(' ')[0].replace(/[{{|}}]/gm, ''),
                 value    = _this.extractVal(currObj, key),
-                preAttrs = match.match(/(\w+)(?=\=)|\s*?[\"\']([^\"\']+)[\"\']/g) || [],
+                preAttrs = match.match(/(\w+)(?=\=)|\s*?[\"\']([^\"\']+)[\"\']/gm) || [],
                 attrs    = {};
 
             for (var i = 0; i <= preAttrs.length - 2; i++) {
-                attrs[preAttrs[i]] = preAttrs[i + 1].replace(/['"]/g, '');
+                attrs[preAttrs[i]] = preAttrs[i + 1].replace(/['"]/gm, '');
                 i++;
             };
 
@@ -368,16 +376,18 @@
                 var ifs = attrs.ifVal.split(',');
                 for (var i = 0; i < ifs.length; i++) {
                     var segments = ifs[i].split('::');
-                    if (value === segments[0]) {
+                    if (value == segments[0]) {
                         return segments[1];
                     }
                 };
-            } else if (attrs.exists && value !== false && typeof value !== 'undefined') {
-                return attrs.exists || match;
-            } else if (attrs.empty && (typeof value === 'undefined' || value === false)) {
-                return attrs.empty || match;
+            } else if (attrs.exists && value !== false) {
+                console.log(key + ' exists: ' + value);
+                return attrs.exists;
+            } else if (attrs.empty && value === false) {
+                return attrs.empty;
             } else {
-                return value || match;
+
+                return value === 0 ? '0' : value || match;
             }
         }
 
@@ -390,9 +400,9 @@
         */
         _this.parseObj = function (html, value) {
             if (typeof value === 'object') {
-                html = html.replace(/\{\{\s*(\w[^\]\s]*)(.*?)\s*\}\}/g, _this.parseFlag);
+                html = html.replace(/\{\{\s*(\w[^\}\s]*)(.*?)\s*\}\}/gm, _this.parseFlag);
             } else if (typeof value === 'string') {
-                html = html.replace(/\{\{value\}\}/g, value);
+                html = html.replace(/\{\{value\}\}/gm, value);
             }
             return html;
         };
@@ -411,8 +421,12 @@
             apiUri.href = options.api.uri;
 
             if(apiUri.hostname === currentUri.hostname && !options.api.forceJSONP) {
+                console.log('json');
                 return 'json';
             } else {
+                console.log(apiUri.hostname);
+                console.log(currentUri.hostname);
+                console.log('jsonp');
                 return 'jsonp';
             }
         };
