@@ -27,6 +27,7 @@
             loading         = false,
             lastPage        = false,
             data            = {},
+            origResponse    = null,
             response        = null,
             currObj         = null,
             template,
@@ -151,6 +152,11 @@
             if (!options.api.httpMethod || $.inArray(options.api.httpMethod, [ 'GET', 'POST' ]) === -1) {
                 _this.debug('invalidHttpMethod', 'error', 'Please provide a valid HTTP method.');
             }
+
+            // whichPagVars
+            if (!options.api.whichPagVars) {
+                options.api.whichPagVars = ['page', 'limit', 'offset'];
+            }
         };
 
 
@@ -191,7 +197,11 @@
                 _this.loader(true);
 
                 // Merge our data with addl. data
-                data = $.extend(true, data, $(_this).data(), options.api.params);
+                if (options.api.dataAttrs) {
+                    data = $.extend(true, data, _this.data(), options.api.params);
+                } else {
+                    data = $.extend(true, data, options.api.params);
+                }
 
                 // Is pagination activated?
                 if (options.pagination.active) {
@@ -214,11 +224,21 @@
                     }
 
                     // Does the API handle pagination?
-                    if (options.api.pagination) {
-                        // Include pagination vars in AJAX call
-                        data[options.api.pagesKey] = page;
-                        data[options.api.limitKey] = count;
-                        data[options.api.offsetKey] = offset;
+                    if (options.api.pagination && options.api.pagVars) {
+                        // Page
+                        if ($.inArray('page', options.api.whichPagVars) !== -1) {
+                            data[options.api.pagesKey] = page;
+                        }
+
+                        // Limit
+                        if ($.inArray('limit', options.api.whichPagVars) !== -1) {
+                            data[options.api.limitKey] = count;
+                        }
+
+                        // Offset
+                        if ($.inArray('offset', options.api.whichPagVars) !== -1) {
+                            data[options.api.offsetKey] = offset;
+                        }
                     }
                 }
 
@@ -238,6 +258,7 @@
                     if (res) {
 
                         // Traverse response
+                        origResponse = res;
                         if(options.api.dataPos) {
                             var dataPos = options.api.dataPos.split('.');
                             for (var i = 0; i < dataPos.length; i++) {
@@ -252,15 +273,17 @@
                         if (options.pagination.active && !options.api.pagination) {
                             // Return a slice
                             response = response.slice(offset, offset + count);
-                        }
 
-                        // Last page flag
-                        if (response.length === 0) {
-                            lastPage = true;
-                            _this.append(options.noResults);
+                            // Last page flag
+                            if (response.length === 0) {
+                                lastPage = true;
+                                _this.append(options.noResults);
+                            } else {
+                                lastPage = false;
+                                options.noResults.remove();
+                                _this.build(response);
+                            }
                         } else {
-                            lastPage = false;
-                            options.noResults.remove();
                             _this.build(response);
                         }
                     }
@@ -283,7 +306,7 @@
                     }, 800);
 
                     // afterLoad Callback
-                    options.afterLoad(response);
+                    options.afterLoad(origResponse, _this);
                 });
             }
         };
@@ -381,12 +404,13 @@
                     }
                 };
             } else if (attrs.exists && value !== false) {
-                console.log(key + ' exists: ' + value);
                 return attrs.exists;
             } else if (attrs.empty && value === false) {
                 return attrs.empty;
+            } else if (attrs.callback && typeof window[attrs.callback] === 'function') {
+                var callback = window[attrs.callback];
+                return callback(value);
             } else {
-
                 return value === 0 ? '0' : value || match;
             }
         }
@@ -421,12 +445,8 @@
             apiUri.href = options.api.uri;
 
             if(apiUri.hostname === currentUri.hostname && !options.api.forceJSONP) {
-                console.log('json');
                 return 'json';
             } else {
-                console.log(apiUri.hostname);
-                console.log(currentUri.hostname);
-                console.log('jsonp');
                 return 'jsonp';
             }
         };
@@ -456,6 +476,10 @@
         } else {
             _this.debug('invalidMainElement', 'error', 'The main object ' + this + ' does not exist.');
         }
+
+        return this.each(function () {
+            var elem = $(this);
+        });
     };
 
     // Defaults
@@ -549,8 +573,14 @@
             // Use a property of the response object as the data array (e.g. 'property.inner_array')
             dataPos: false,
 
-            // Send pagination vars to API in AJAX request
+            // Let API handle pagination
             pagination: false,
+
+            // Send pagination vars in API call
+            pagVars: false,
+
+            // Which pagination vars to include - page, limit, offset (all by default)
+            whichPagVars: null,
             
             // Set key of current page # param sent in API request
             pagesKey: 'page',
@@ -560,6 +590,9 @@
             
             // Set key of offset param sent in API request
             offsetKey: 'offset',
+
+            // Include 'data-*' type attributes as API request parameters
+            dataAttrs: false,
 
             // Additional params to send with each request
             params: {}
