@@ -197,11 +197,7 @@
                 _this.loader(true);
 
                 // Merge our data with addl. data
-                if (options.api.dataAttrs) {
-                    data = $.extend(true, data, _this.data(), options.api.params);
-                } else {
-                    data = $.extend(true, data, options.api.params);
-                }
+                data = $.extend(true, data, options.api.params);
 
                 // Is pagination activated?
                 if (options.pagination.active) {
@@ -579,7 +575,7 @@
             // Send pagination vars in API call
             pagVars: false,
 
-            // Which pagination vars to include - page, limit, offset (all by default)
+            // Array of which pagination vars to include - ['page', 'limit', 'offset'] (inc. all by default)
             whichPagVars: null,
             
             // Set key of current page # param sent in API request
@@ -590,9 +586,6 @@
             
             // Set key of offset param sent in API request
             offsetKey: 'offset',
-
-            // Include 'data-*' type attributes as API request parameters
-            dataAttrs: false,
 
             // Additional params to send with each request
             params: {}
