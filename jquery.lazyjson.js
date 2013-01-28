@@ -21,8 +21,9 @@
             page            = null,
             count           = null,
             offset          = null,
-            pageUpEvents    = [ 'lazyLoad', 'nextBtn', 'custom' ],
-            pageDownEvents  = [ 'prevBtn' ],
+            pageUpEvents    = ['lazyLoad', 'nextBtn', 'custom'],
+            pageDownEvents  = ['prevBtn'],
+            boundEvents     = [],
             currEvent       = null,
             loading         = false,
             lastPage        = false,
@@ -54,7 +55,7 @@
 
                 // Is lazyLoad activated?
                 if (options.pagination.lazyLoad) {
-
+                    boundEvents.push({targ: 'window', evt: 'scroll'});
                     $(window).scroll(function () {
                         var position = _this.position();
                         if (($(window).height() + $(window).scrollTop()) > (position.top + _this.height())) {
@@ -65,7 +66,7 @@
 
                 // Custom Event
                 } else if (options.pagination.loadOnEvent && options.pagination.loadOnTarget) {
-
+                    boundEvents.push({targ: options.pagination.loadOnTarget, evt: options.pagination.loadOnEvent});
                     // Bind event
                     $('body').on(options.pagination.loadOnEvent, options.pagination.loadOnTarget, function (evt) {
                         evt.preventDefault();
@@ -77,6 +78,7 @@
                 } else {
 
                     // Next Button
+                    boundEvents.push({targ: options.pagination.nextBtn, evt: 'click'});
                     $(_this.parent()).on('click', options.pagination.nextBtn, function (evt) {
                         evt.preventDefault();
                         currEvent = 'nextBtn';
@@ -84,6 +86,7 @@
                     });
 
                     // Prev Button
+                    boundEvents.push({targ: options.pagination.prevBtn, evt: 'click'});
                     $(_this.parent()).on('click', options.pagination.prevBtn, function (evt) {
                         evt.preventDefault();
                         currEvent = 'prevBtn';
@@ -91,6 +94,7 @@
                     });
                 }
             }
+            _this.debug('boundEvents', 'notice', boundEvents);
         };
 
 
@@ -131,12 +135,12 @@
             // Loader
             if (!(options.loader instanceof jQuery)) {
                 options.loader = $(options.loader);
-                options.loader.children('img').attr('src', options.loaderImg);
+                options.loader.find('img').attr('src', options.loaderImg);
             }
 
             // No Results
             if (!(options.noResults instanceof jQuery)) {
-                options.noResults = $(options.noResults).text(options.noResultsText);
+                options.noResults = $(options.noResults).html(options.noResultsText);
             }
 
             /*----------------------
@@ -269,19 +273,22 @@
                         if (options.pagination.active && !options.api.pagination) {
                             // Return a slice
                             response = response.slice(offset, offset + count);
-
-                            // Last page flag
-                            if (response.length === 0) {
-                                lastPage = true;
-                                _this.append(options.noResults);
-                            } else {
-                                lastPage = false;
-                                options.noResults.remove();
-                                _this.build(response);
-                            }
-                        } else {
-                            _this.build(response);
                         }
+
+                        // Last page flag
+                        if (response.length === 0 || origResponse.length === 0) {
+                            lastPage = true;
+                            _this.message(false);
+                            _this.message(true);
+                        } else {
+                            lastPage = false;
+                            _this.message(false);
+                        }
+
+                        _this.build(response);
+                    } else {
+                        _this.message(false);
+                        _this.message(true);
                     }
 
                     // Reset pages and count if this was the initial load
@@ -348,6 +355,8 @@
                                 clone.slideDown('fast');
                             }
                         }, options.delay * k);
+                    } else {
+                        clone.show();
                     }
                 });
             }
@@ -377,14 +386,17 @@
         /*
         parseFlag
         ----------
-        Parses the key and various attributes from the template flag, then
-        returns the appropriate value.
+        Parses the flagspace, key and various attributes from the template
+        flag, then returns the appropriate value.
         */
         _this.parseFlag = function (match) {
-            var key      = match.split(' ')[0].replace(/[{{|}}]/gm, ''),
-                value    = _this.extractVal(currObj, key),
-                preAttrs = match.match(/(\w+)(?=\=)|\s*?[\"\']([^\"\']+)[\"\']/gm) || [],
-                attrs    = {};
+            // Build vars
+            var keySegs     = match.split(' '),
+                flagspace   = keySegs[0].indexOf('::') !== -1 ? keySegs[0].split('::')[0].replace(/[{{|}}]/gm, '') : null,
+                key         = flagspace ? keySegs[0].split('::')[1].replace(/[{{|}}]/gm, '') : match.split(' ')[0].replace(/[{{|}}]/gm, ''),
+                value       = (!flagspace || flagspace === options.flagspace) ? _this.extractVal(currObj, key) : null,
+                preAttrs    = match.match(/(\w+)(?=\=)|\s*?[\"\']([^\"\']+)[\"\']/gm) || [],
+                attrs       = {};
 
             for (var i = 0; i <= preAttrs.length - 2; i++) {
                 attrs[preAttrs[i]] = preAttrs[i + 1].replace(/['"]/gm, '');
@@ -428,6 +440,12 @@
         };
 
 
+        _this.destroy = function () {
+            $.each(boundEvents, function(k, v) {
+                $(v.targ).off(v.evt);
+            });
+        }
+
         /*
         getDataType
         -----
@@ -451,14 +469,25 @@
         /*
         AJAX Loader
         -----
-        Grabs the template object and parses the placeholders using the
-        reponse object's properties.
         */
         _this.loader = function (display) {
             if (display) {
                 _this.append(options.loader);
             } else {
                 $(options.loader, _this).remove();
+            }
+        };
+
+
+        /*
+        No Results Container
+        -----
+        */
+        _this.message = function (display) {
+            if (display) {
+                _this.append(options.noResults);
+            } else {
+                $(options.noResults, _this).remove();
             }
         };
 
@@ -491,14 +520,17 @@
         // The template element's ID prefix (e.g. "#template-lazyjson" for $('#lazyjson').lazyjson())
         templatePrefix: 'template-',
         
+        // Keep the parsing of certain tags constrained to certain plugin instances
+        flagspace: null,
+
         // The loader element, will also accept a jQuery object
-        loader: '<div id="lj-loader" style="text-align:center;padding:20px;"><img /></div>',
+        loader: '<div class="lj-loader" style="text-align:center;padding:20px;"><img /></div>',
         
         // The URL or path to the loader image to assign to the loader object
         loaderImg: null,
 
         // Element displayed when results don't exist, will also accept a jQuery object
-        noResults: '<div id="lj-noresponse" style="text-align:center;padding:20px;"></div>',
+        noResults: '<div class="lj-noresponse" style="text-align:center;margin:10px 0;padding:20px;"></div>',
         
         // Text to display in default noResults element
         noResultsText: 'No Results Found',
