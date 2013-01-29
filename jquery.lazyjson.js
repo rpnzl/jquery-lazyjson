@@ -355,8 +355,6 @@
                                 clone.slideDown('fast');
                             }
                         }, options.delay * k);
-                    } else {
-                        clone.show();
                     }
                 });
             }
@@ -369,16 +367,19 @@
         Finds and returns the desired property within an object.
         */
         _this.extractVal = function (obj, key) {
-            if (key.indexOf('.') !== -1) {
-                var topKey = key.split('.')[0],
-                    key    = key.slice(topKey.length + 1, key.length);
-                return _this.extractVal(obj[topKey], key);
-            } else {
-                if (obj !== null && typeof obj[key] !== 'undefined') {
-                    return obj[key];
+            if (typeof obj !== 'undefined') {
+                if (key.indexOf('.') !== -1) {
+                    var topKey = key.split('.')[0],
+                        key    = key.slice(topKey.length + 1, key.length);
+                    return _this.extractVal(obj[topKey], key);
                 } else {
-                    return false;
+                    if (obj !== null && typeof obj[key] !== 'undefined') {
+                        return obj[key];
+                    } else {
+                        return false;
+                    }
                 }
+                return false;
             }
         }
 
