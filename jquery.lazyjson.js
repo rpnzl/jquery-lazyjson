@@ -1,6 +1,6 @@
 /*
  * LazyJSON Plugin
- * Version: 1.1.0 (Wed, 12 Dec 2012)
+ * Version: 1.1 (Wed, 12 Dec 2012)
  * https://github.com/rpnzl/jquery-lazyjson
  *
  * Copyright 2012, Michael Giuliana
