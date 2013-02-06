@@ -414,7 +414,7 @@
                 };
             } else if (attrs.exists && value !== false) {
                 return attrs.exists;
-            } else if (attrs.empty && value === false) {
+            } else if (attrs.empty && (value === false || value === null)) {
                 return attrs.empty;
             } else if (attrs.callback && typeof window[attrs.callback] === 'function') {
                 var callback = window[attrs.callback];
