@@ -1,6 +1,6 @@
 /*
  * LazyJSON Plugin
- * Version: 1.1 (Wed, 12 Dec 2012)
+ * Version: 1.1.1
  * https://github.com/rpnzl/jquery-lazyjson
  *
  * Copyright 2012, Michael Giuliana
@@ -396,13 +396,18 @@
                 flagspace   = keySegs[0].indexOf('::') !== -1 ? keySegs[0].split('::')[0].replace(/[{{|}}]/gm, '') : null,
                 key         = flagspace ? keySegs[0].split('::')[1].replace(/[{{|}}]/gm, '') : match.split(' ')[0].replace(/[{{|}}]/gm, ''),
                 value       = (!flagspace || flagspace === options.flagspace) ? _this.extractVal(currObj, key) : null,
-                preAttrs    = match.match(/(\w+)(?=\=)|\s*?[\"\']([^\"\']+)[\"\']/gm) || [],
+                preAttrs    = match.match(/(\w+)(?=\=)|\s*?[\"\']([^\"\']*?)[\"\']/gm) || [],
                 attrs       = {};
 
             for (var i = 0; i <= preAttrs.length - 2; i++) {
                 attrs[preAttrs[i]] = preAttrs[i + 1].replace(/['"]/gm, '');
                 i++;
             };
+
+            if (attrs.callback && typeof window[attrs.callback] === 'function') {
+                var callback = window[attrs.callback];
+                value = callback(value);
+            }
 
             if (attrs.ifVal && attrs.ifVal.indexOf(value) !== -1) {
                 var ifs = attrs.ifVal.split(',');
@@ -414,14 +419,14 @@
                 };
             } else if (attrs.exists && value !== false) {
                 return attrs.exists;
-            } else if (attrs.empty && (value === false || value === null)) {
+            } else if (attrs.hasOwnProperty('empty')
+                       && (value === false || value === null || value === '' || typeof value === 'undefined')) {
                 return attrs.empty;
-            } else if (attrs.callback && typeof window[attrs.callback] === 'function') {
-                var callback = window[attrs.callback];
-                return callback(value);
-            } else {
-                return value === 0 ? '0' : value || '';
             }
+            value = value === 0 ? '0' : value || '';
+            attrs.pre = attrs.pre ? attrs.pre : '';
+            attrs.post = attrs.post ? attrs.post : '';
+            return attrs.pre + value + attrs.post;
         }
 
 
