@@ -420,7 +420,7 @@
                 var callback = window[attrs.callback];
                 return callback(value);
             } else {
-                return value === 0 ? '0' : value || match;
+                return value === 0 ? '0' : value || '';
             }
         }
 
