@@ -5,7 +5,6 @@ Easily load and display JSON from a valid API endpoint.
 After fruitless searches around the web for an easy to implement, lazyload-type plugin that interacted with JSON resources, I decided to create one. This plugin allows you to asynchronously load and paginate a JSON response from an API and display it on your site.
 
 <a class="btn large" href="http://rpnzl.com/jquery/lazyjson/demo">Demo</a>
-<a class="btn large" href="https://github.com/rpnzl/jquery-lazyjson">GitHub</a>
 
 ### Table of Contents
 
