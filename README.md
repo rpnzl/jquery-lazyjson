@@ -1,3 +1,15 @@
+# LazyJSON
+
+Easily load and display JSON data from an API endpoint.
+
+
+
+## Getting Started
+
+
+
+
+
 ##LazyJSON
 
 Easily load and display JSON from a valid API endpoint.

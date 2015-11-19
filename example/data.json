@@ -1,20 +1,1185 @@
 [
   {
-    "name": "Bill",
-    "data": {
-      "age": 37
-    }
+    "username": "Alexandrea",
+    "bio": "vitae porro sunt incidunt quia eum quod qui pariatur\nmodi vel vero velit voluptas sit\neaque cumque consequatur sed",
+    "name": "Mozell Quitzon IV",
+    "phone": "1-984-533-9051",
+    "email": "Piper.Kassulke@willy.us",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
   },
   {
-    "name": "Barbara",
-    "data": {
-      "age": 24
-    }
+    "username": "Clementina_Marquardt",
+    "bio": "velit illo et aut et rerum quaerat sunt fugit\nest et reprehenderit ea\nqui et voluptates",
+    "name": "Maurine Nikolaus",
+    "phone": "192-081-3949",
+    "email": "Elmo_Block@dulce.info",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
   },
   {
-    "name": "Bob",
-    "data": {
-      "age": 14
-    }
+    "username": "Myrtice.Casper",
+    "bio": "totam necessitatibus mollitia enim quibusdam ut officia doloribus\ninventore incidunt possimus tempora velit quasi corrupti ut ratione\nautem autem fugit iusto dolores enim consectetur laudantium temporibus",
+    "name": "Reynold Abbott III",
+    "phone": "489.542.7675 x35173",
+    "email": "Ida.Hoppe@nick.name",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Jakob_Heathcote",
+    "bio": "officia nesciunt corporis ullam et\ncupiditate eos praesentium voluptas velit incidunt nemo aut aut\nipsa laboriosam rerum asperiores quisquam dolores excepturi ad",
+    "name": "Russell Stokes",
+    "phone": "620.109.4106",
+    "email": "Enrique@roselyn.info",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Leanne",
+    "bio": "ullam necessitatibus quisquam quos\nnatus eligendi dolores hic et iusto sit\natque voluptate est",
+    "name": "Bertram Swift",
+    "phone": "(432)078-0739 x22861",
+    "email": "Keegan.Ratke@ferne.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Retha",
+    "bio": "doloremque facilis quia eum\nexcepturi maiores et corrupti\noccaecati harum ea sapiente voluptatem rerum",
+    "name": "Alvena Torphy",
+    "phone": "(450)190-5093",
+    "email": "Victor_Braun@noemie.org",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Orlando",
+    "bio": "aut cupiditate quia qui ut natus\nearum incidunt impedit in enim quos dolor\nsed voluptates quaerat quis saepe",
+    "name": "Willis Kunde",
+    "phone": "186.669.4854",
+    "email": "Glennie@mozell.tv",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Gwendolyn",
+    "bio": "velit consequuntur qui esse sunt qui et\ncorporis rerum soluta\nin quia minus et consequatur perferendis",
+    "name": "Derrick Willms",
+    "phone": "873-620-3970",
+    "email": "Rosemary.Hoeger@sonia.io",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Litzy",
+    "bio": "rerum facilis aliquid quos sed similique consequatur sequi ducimus\naccusantium recusandae ut numquam necessitatibus dolorem dicta\nnon et sed sit consequatur",
+    "name": "Muriel Denesik",
+    "phone": "1-426-675-5171 x2592",
+    "email": "Aleen_Hintz@anne.net",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Reuben_Reichert",
+    "bio": "ut quos consequuntur hic dolores unde deleniti eligendi\nat incidunt quia unde ea harum\nqui quaerat alias earum nesciunt excepturi",
+    "name": "Camilla Pouros",
+    "phone": "1-144-775-9606 x95183",
+    "email": "Ted_Ryan@octavia.org",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Mellie.Strosin",
+    "bio": "non consequatur aut placeat voluptas soluta\neveniet ullam repellendus\nnisi corporis expedita quia debitis vel consequatur praesentium",
+    "name": "Eliza Luettgen",
+    "phone": "826-369-5412",
+    "email": "Garry.Jast@angelina.net",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Cade.Lang",
+    "bio": "quae mollitia quia ex\nnecessitatibus minus quibusdam saepe rem delectus nihil eos\nimpedit voluptas est",
+    "name": "Dayna Collier",
+    "phone": "(940)112-7077",
+    "email": "Paxton.Conn@ebony.info",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Serena",
+    "bio": "accusamus ex sit\neum rerum cumque\neum vero vitae quibusdam dolore laborum",
+    "name": "Miss Golda Kulas",
+    "phone": "231-440-3967 x08718",
+    "email": "Alexane.Rosenbaum@misael.io",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Mariam_Parisian",
+    "bio": "quasi dolor atque voluptatem nemo voluptas\nquisquam aliquam officiis nihil eum quia non deserunt dolorum\nsuscipit fugiat ipsa reprehenderit sed asperiores rerum",
+    "name": "Boyd Stroman",
+    "phone": "1-836-325-3813 x5065",
+    "email": "Sarai_Fritsch@kieran.info",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Newell",
+    "bio": "sit quis rerum temporibus odit sint nisi\nquos tempore recusandae animi consectetur et\nreprehenderit dolor voluptatem repudiandae natus aut enim",
+    "name": "Maverick Rowe",
+    "phone": "245-143-4344",
+    "email": "Daphnee@robb.tv",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Lavon.Kling",
+    "bio": "ut eum sint dicta quisquam doloremque\nullam quaerat provident iure voluptatem\nest distinctio aliquid esse facere praesentium quia autem quaerat",
+    "name": "Karl Hammes",
+    "phone": "1-051-109-3165 x6081",
+    "email": "Ewald.Bednar@erna.co.uk",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Katharina",
+    "bio": "accusamus laboriosam nobis officiis natus rerum ab perspiciatis aut\nquam quis voluptatem magni ut minima voluptatem\nut qui quibusdam deleniti",
+    "name": "Dejuan Zboncak",
+    "phone": "1-451-080-9018",
+    "email": "Clara@norene.co.uk",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Queen",
+    "bio": "enim rem minus expedita eaque at in\nvero aspernatur voluptas minus\nut similique harum quasi libero",
+    "name": "Mrs. Shana Botsford",
+    "phone": "480-660-0514 x684",
+    "email": "Monte@shirley.us",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Meghan_Hagenes",
+    "bio": "est autem molestias pariatur impedit\nlabore sit et aut ipsum omnis quia sit\nrecusandae ea accusamus odio laborum hic eum ut blanditiis",
+    "name": "Mr. Agustin Sipes",
+    "phone": "1-852-334-8751 x229",
+    "email": "Delfina_Bogan@bethel.me",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Walton_Heller",
+    "bio": "rerum vero officia veritatis esse\nquia eaque rerum nesciunt nemo ratione sed consequuntur et\naliquam et voluptas voluptas et",
+    "name": "Kathryn Schmeler DDS",
+    "phone": "282.741.2704",
+    "email": "Estefania@devan.biz",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Franz",
+    "bio": "corporis ratione maxime quasi ad unde aut harum\nvoluptatum blanditiis sapiente occaecati\nest at corrupti quia reprehenderit voluptatem et aperiam",
+    "name": "Carmen Walker",
+    "phone": "(249)675-6373 x462",
+    "email": "Hillard@karolann.net",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Brennon_Gleason",
+    "bio": "deserunt debitis saepe\nrepellat et reiciendis aut tenetur nisi\nhic aut dolore rerum",
+    "name": "Chaz Miller",
+    "phone": "(349)310-4647",
+    "email": "Lawson@darrick.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Ayana",
+    "bio": "consequatur ut aut quo accusantium\nratione magni incidunt\neveniet pariatur rerum nesciunt sed dolores eligendi quibusdam",
+    "name": "Dr. Colton Reinger",
+    "phone": "1-176-747-2381 x8080",
+    "email": "Bailey@josefa.me",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Wilfredo",
+    "bio": "est et dolores itaque\naperiam exercitationem architecto tempora debitis qui sit expedita qui\nlaborum est consequatur quam sed nostrum dolorum voluptas",
+    "name": "Jace Lemke",
+    "phone": "1-145-053-0223",
+    "email": "Maddison@magnolia.tv",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Dominique",
+    "bio": "alias dolorem omnis\nrerum ratione consequatur minima sunt\nlabore aut perspiciatis totam",
+    "name": "Ofelia Hodkiewicz",
+    "phone": "(776)815-9833",
+    "email": "Sabrina_Borer@hilda.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Archibald.Bogan",
+    "bio": "consequatur impedit vel nulla iste tempora\nsit sunt dolore\nnon at assumenda",
+    "name": "Loy Schuppe V",
+    "phone": "(972)834-0288 x77534",
+    "email": "Gene.Hilll@dameon.net",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Alejandra_Kirlin",
+    "bio": "possimus accusamus totam cumque deserunt corrupti ut voluptas molestias\ndolorum quia et\nsequi aspernatur laudantium rerum distinctio",
+    "name": "Giles Ebert",
+    "phone": "203.007.1364",
+    "email": "Rosetta_Dare@riley.co.uk",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Hal",
+    "bio": "modi quos omnis qui aliquid dolor\nquo enim recusandae molestiae veniam labore\nmaxime in qui veniam sunt",
+    "name": "Roger Prosacco",
+    "phone": "372-001-2569 x9667",
+    "email": "Heath_Ritchie@sid.ca",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Meghan_Smitham",
+    "bio": "inventore provident fuga ab eligendi voluptatum expedita voluptas dolorem\ndeserunt molestias consequatur voluptatem\nmaxime voluptatem sint voluptas consequatur et",
+    "name": "Muhammad Beatty",
+    "phone": "(087)243-7416",
+    "email": "Golda@stephan.io",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Jeromy",
+    "bio": "non quidem veniam\nexcepturi iste quia consequatur est quibusdam temporibus\nadipisci animi quia excepturi",
+    "name": "Isadore Gaylord",
+    "phone": "(044)997-5127 x72400",
+    "email": "Krista@jaycee.net",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Jevon",
+    "bio": "eum reprehenderit beatae\ndolores qui cumque quae\naut unde tempora",
+    "name": "Miss Jermain Leannon",
+    "phone": "936-348-6960",
+    "email": "Urban_Rogahn@arlie.us",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Rashawn_Purdy",
+    "bio": "illum necessitatibus saepe dolores sint illo\nlabore nostrum repudiandae beatae eligendi accusamus laudantium tenetur\nrecusandae quia dolorem aut occaecati quae",
+    "name": "Misael Wilkinson",
+    "phone": "028-169-0033",
+    "email": "Sophia.Stiedemann@torrance.biz",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Rogelio",
+    "bio": "ipsam distinctio nulla eum aut voluptatem magni\nvel amet ut ut dignissimos\nconsequuntur rem maiores",
+    "name": "Mrs. Alexandra Nikolaus",
+    "phone": "(161)664-0745 x2546",
+    "email": "Robert@lafayette.tv",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Ramon.Vandervort",
+    "bio": "quos vitae aperiam impedit vel quidem itaque molestias\ndolores dolor consequatur assumenda\ndeserunt maxime in harum aliquam quos velit sunt rerum",
+    "name": "Gabriel Collier IV",
+    "phone": "370.150.4896 x815",
+    "email": "Quentin.Dare@murl.tv",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Patricia",
+    "bio": "laborum unde qui iure nobis placeat\nvoluptatem rem voluptatibus at exercitationem hic et atque\nmodi voluptate consequatur non maxime explicabo qui",
+    "name": "Madyson Doyle",
+    "phone": "(294)380-5363",
+    "email": "Cordelia@vinnie.tv",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Orlando",
+    "bio": "dolorem esse assumenda perferendis veniam corrupti voluptate aut atque\nmagni voluptate delectus dolorem est ipsum qui quis optio\nqui omnis aut ipsum ut est quidem",
+    "name": "Miss Deanna Rath",
+    "phone": "611.137.0301 x909",
+    "email": "Karen@cecil.ca",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Orlo_Stamm",
+    "bio": "enim dolorem voluptatem dolorum natus vero\nfacilis quo modi sint architecto enim aliquid\nut consectetur necessitatibus in ullam et eveniet",
+    "name": "Colin Lindgren",
+    "phone": "308-952-4966 x038",
+    "email": "Camila.Kub@dewayne.us",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Justus",
+    "bio": "aliquam error in exercitationem quidem dolor veritatis\nvoluptatem fugiat sunt sint ullam maxime accusamus\nquos nulla ipsa",
+    "name": "Trudie Gorczany",
+    "phone": "679.479.5861 x20730",
+    "email": "Skye@lea.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Loma.Gleason",
+    "bio": "ut molestias impedit autem ex dolores\nvoluptatibus illum error vitae\net corporis libero adipisci dolorum consequatur tempore ullam ea",
+    "name": "Anastacio Streich",
+    "phone": "(404)308-6168 x2570",
+    "email": "Jedidiah_Kilback@orlando.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Buster",
+    "bio": "consequuntur ea molestiae eaque deserunt nulla cum officia aperiam\nullam minus mollitia possimus magnam adipisci ipsum et\nnemo harum nihil et impedit ut aut quia corporis",
+    "name": "Alek Rempel",
+    "phone": "776.091.6200 x5054",
+    "email": "Margot_Hamill@silas.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Darrell",
+    "bio": "voluptas quis dicta pariatur\nasperiores ut et dolorum porro molestiae vero\namet dolor ratione optio nihil nam repellat",
+    "name": "Colleen Breitenberg",
+    "phone": "709.546.1026",
+    "email": "Luella_Kunde@esmeralda.us",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Gavin",
+    "bio": "quasi aut est tempora tenetur non aspernatur sed voluptas\nnobis quas quo\nin blanditiis quae et necessitatibus aut omnis",
+    "name": "Priscilla Bosco",
+    "phone": "(984)002-0746 x1023",
+    "email": "Agnes_Mertz@jaleel.tv",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Alfonso.Romaguera",
+    "bio": "error ipsa dolores nobis animi cumque similique et dolorem\ndolore maxime quia sit harum itaque qui ut iusto\ntotam sed aut nam cupiditate accusamus laborum",
+    "name": "Skylar Hermiston",
+    "phone": "381-785-8089",
+    "email": "Vanessa_Daniel@maci.co.uk",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Jess",
+    "bio": "ea natus sed iusto culpa\nexcepturi qui velit alias voluptatem non necessitatibus tenetur\nut et accusantium velit nobis omnis ipsa",
+    "name": "Judd Hand",
+    "phone": "775.894.6676 x283",
+    "email": "Mikel.Mraz@michaela.biz",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Jasen.Fahey",
+    "bio": "vero eum magnam qui omnis est\nomnis est eos incidunt enim doloremque\nexplicabo maxime quisquam in dignissimos unde sint blanditiis natus",
+    "name": "Casimir Wolff",
+    "phone": "365-885-8529 x7208",
+    "email": "Leif_Howell@maurice.biz",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Melvina.Streich",
+    "bio": "id veniam sapiente est aut cupiditate\nsimilique eveniet voluptatum\naut tenetur laborum iste ut repellat tempora ex voluptas",
+    "name": "Johnathon Corkery",
+    "phone": "1-623-136-2056 x6709",
+    "email": "Lennie.Wilkinson@karine.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Camille_Lebsack",
+    "bio": "sit qui quia\nsit eum voluptatibus corporis\net ducimus enim dolorem provident ut aut",
+    "name": "Dariana Thompson",
+    "phone": "(692)247-6575 x067",
+    "email": "Carrie@louisa.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Sonya",
+    "bio": "praesentium repellendus magnam\ndelectus perferendis dolores ut\nerror ratione perspiciatis aut sit ut est veritatis",
+    "name": "Mr. Etha Kilback",
+    "phone": "788-954-1929 x202",
+    "email": "Moshe.Steuber@devon.biz",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Magnolia",
+    "bio": "debitis ipsam alias eum\nqui iure debitis possimus omnis numquam sed voluptas\naccusamus dolores et rerum distinctio animi",
+    "name": "Miss Janet Swift",
+    "phone": "1-132-373-2935",
+    "email": "Ivory_Dickinson@samara.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Tamara",
+    "bio": "quia cum sit expedita velit\nducimus impedit natus non ut voluptatum blanditiis\nnemo velit ut libero exercitationem sequi porro in nihil",
+    "name": "Natasha Denesik",
+    "phone": "429-723-1543 x88229",
+    "email": "Berniece.Davis@justina.biz",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Ezra.Borer",
+    "bio": "qui et occaecati adipisci culpa reiciendis dicta tempore aut\nquidem itaque perferendis non commodi\nquos provident suscipit quia",
+    "name": "Miss Leopold Wilkinson",
+    "phone": "1-328-224-2343 x175",
+    "email": "Abby@madaline.tv",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Emanuel",
+    "bio": "voluptatem et vel non\nautem temporibus aut beatae nulla labore odit\nautem inventore facilis natus",
+    "name": "Luis O'Keefe",
+    "phone": "1-760-072-8153 x34964",
+    "email": "Jameson@jolie.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Fausto",
+    "bio": "quos facere magni et asperiores autem maxime\ntotam earum et ullam quos\net rem aut",
+    "name": "Ahmad Rosenbaum",
+    "phone": "459-780-2789",
+    "email": "Kenton.Rutherford@kenya.co.uk",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Bertrand",
+    "bio": "id dolores tenetur possimus quasi sequi\nquia occaecati recusandae quas praesentium veritatis quam ut\ntemporibus ratione iste et rerum occaecati",
+    "name": "Shawna Pacocha",
+    "phone": "060.196.4747",
+    "email": "Art_Rippin@elijah.me",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Rosemarie",
+    "bio": "laudantium illo esse\nipsum consequuntur nesciunt numquam harum odio quam\nconsequatur nihil ab consequatur et qui quia non",
+    "name": "Alberta Legros",
+    "phone": "(088)563-9601 x672",
+    "email": "Lambert@vickie.name",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Kenyatta",
+    "bio": "non dolorum adipisci nihil magnam fuga\nminima delectus est\ndelectus ullam praesentium dolorum perferendis qui",
+    "name": "Elva Braun II",
+    "phone": "647-537-5905",
+    "email": "Leanna@arnulfo.us",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Blanche",
+    "bio": "consequatur voluptate deserunt nobis tempora est\nconsequatur ipsam magni voluptate molestiae quasi corrupti aut\nnisi aut aperiam rerum laudantium",
+    "name": "Earl Doyle III",
+    "phone": "1-428-555-9974 x091",
+    "email": "Aaliyah_Hayes@parker.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Reid",
+    "bio": "est occaecati sunt in dolore\nqui nemo in et voluptatem cupiditate similique\nfacilis in et animi itaque sapiente aliquam",
+    "name": "Keshawn Turcotte",
+    "phone": "(263)272-2395 x47967",
+    "email": "Alverta@laurel.info",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Phyllis.Bosco",
+    "bio": "qui autem sunt maiores accusamus\nvoluptatem sit est fuga recusandae\ndolores incidunt in",
+    "name": "Arden Adams",
+    "phone": "529-756-0456",
+    "email": "Carlie.Mills@margaretta.name",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Hallie",
+    "bio": "sunt vero aperiam quam et quia facere\ndistinctio eligendi quo vero\nrepellendus inventore sit non consequuntur quidem",
+    "name": "Linwood Luettgen",
+    "phone": "514-810-3696",
+    "email": "Nathan@bessie.tv",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Jeffrey",
+    "bio": "fuga sequi in quis ab nostrum possimus\ntempore aut est rem voluptates possimus non officia\nsed beatae laudantium nulla velit enim",
+    "name": "Eileen Friesen",
+    "phone": "631-970-8347 x2862",
+    "email": "Dewayne_Jenkins@marshall.io",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Joshuah.Witting",
+    "bio": "delectus libero voluptas\nofficiis at odit accusantium est\nexcepturi eos molestiae voluptas sint quam a corporis",
+    "name": "Oscar Wehner",
+    "phone": "1-103-883-3148 x14511",
+    "email": "Orval@leopold.info",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Laurine",
+    "bio": "explicabo qui minus ipsam\nomnis velit repellendus laudantium enim\ndelectus perferendis sapiente velit non deleniti",
+    "name": "Dr. Vena Stiedemann",
+    "phone": "612.738.4329 x0981",
+    "email": "Noemy@buford.info",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Allison.Koepp",
+    "bio": "ipsum in est quia laudantium iusto ut\niste temporibus nam et qui aut dicta\nodio occaecati quia minima velit qui incidunt",
+    "name": "Maximillian Spencer",
+    "phone": "889-621-5585",
+    "email": "Valerie@ewell.biz",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Roselyn_Morissette",
+    "bio": "a ea aperiam\nnecessitatibus laudantium accusantium autem autem sequi\nvel quia ut velit illum optio dolor",
+    "name": "Rick Frami",
+    "phone": "(262)617-3472",
+    "email": "Mckayla@saige.ca",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Chauncey.Runolfsdottir",
+    "bio": "nam dolor minus nostrum\nquia omnis nemo animi voluptates nobis\na nobis odit dolor veritatis",
+    "name": "Ervin Rice",
+    "phone": "(016)942-4904",
+    "email": "Layla@toby.com",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Micaela.Lang",
+    "bio": "vitae quasi vel quam cum quisquam ut minus excepturi\nodit accusamus nam et delectus facere ut placeat\nea sint neque nostrum repellat nesciunt",
+    "name": "Miss Krystina Feest",
+    "phone": "939-399-0151 x238",
+    "email": "Garry.McLaughlin@autumn.org",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Demario",
+    "bio": "eligendi aspernatur enim fugiat commodi ratione fugit sunt\nqui repudiandae ab laboriosam molestiae\noptio aut excepturi vero laudantium eum aliquam explicabo non",
+    "name": "Alvis Lind",
+    "phone": "300.279.9514 x7644",
+    "email": "Amina_Okuneva@sister.biz",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Isadore_Altenwerth",
+    "bio": "aliquid ex et aut consequatur\nrerum odio suscipit iste voluptas\nculpa totam exercitationem est veritatis",
+    "name": "Tabitha Schaden",
+    "phone": "953-568-8212",
+    "email": "Rosalinda@matilda.co.uk",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Pietro.Fay",
+    "bio": "voluptas vitae quisquam repudiandae ut deserunt possimus\nvitae doloremque perferendis\ntenetur porro quae et dignissimos hic illo inventore temporibus",
+    "name": "Miss Rick Schiller",
+    "phone": "450-413-1666 x43829",
+    "email": "Ericka@serenity.ca",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Myah.Hermiston",
+    "bio": "iusto facilis molestiae officiis\na expedita libero eaque autem sunt\nsunt voluptatibus omnis debitis temporibus corrupti fuga",
+    "name": "Tommie Guªann II",
+    "phone": "746.043.3704",
+    "email": "Narciso_Bailey@elmo.us",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Genesis.Russel",
+    "bio": "eaque incidunt dignissimos at qui\nrerum cupiditate iusto aliquam et odit consequuntur\nnumquam enim reprehenderit expedita praesentium rerum quo",
+    "name": "Aleen Kozey II",
+    "phone": "(880)122-5529 x35953",
+    "email": "Bennie.Fritsch@madisyn.net",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Lesley.Pouros",
+    "bio": "nobis ratione velit sed optio provident eius officiis\net qui aut et cum ex odit enim\nrerum non minima voluptatem",
+    "name": "Mrs. Jeanette Schultz",
+    "phone": "581-973-3878 x099",
+    "email": "Daphney@jaunita.co.uk",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Elwyn_Fadel",
+    "bio": "tenetur a incidunt possimus fuga in\nnam et harum laboriosam cum\nillum modi voluptatum neque",
+    "name": "Otis Robel V",
+    "phone": "988-432-3487",
+    "email": "Malcolm@virginia.us",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Fausto",
+    "bio": "incidunt voluptatem in eum consequatur\na facilis expedita omnis architecto quis maiores iusto libero\naut possimus inventore numquam in ratione magni",
+    "name": "Courtney Lindgren",
+    "phone": "1-797-543-5306 x152",
+    "email": "Geovany_Weissnat@lenna.io",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Charlene_Connelly",
+    "bio": "animi necessitatibus dolorum id\nquod inventore enim consequuntur saepe non dolor\nea praesentium explicabo magnam",
+    "name": "Kamille Rosenbaum",
+    "phone": "731.104.8140 x11115",
+    "email": "Pasquale@gladys.us",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Romaine.Schaefer",
+    "bio": "at et et consequatur fugit sunt distinctio sed tempora\nrem et ut sunt in quo earum totam\npariatur voluptatem dolorem",
+    "name": "Ms. Mariano Schaefer",
+    "phone": "1-176-094-8606",
+    "email": "Ramon@harrison.info",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Dora",
+    "bio": "vel sed ut amet sunt deleniti\nnon quia alias rerum dignissimos voluptates quod\naccusantium sed aut voluptatem rerum ab repellat nihil veniam",
+    "name": "Coty Yundt",
+    "phone": "368.625.6032 x049",
+    "email": "Erin_Greenfelder@nils.biz",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Else.Block",
+    "bio": "blanditiis voluptatem laborum et et ut\nautem fugiat explicabo velit\nhic doloribus et omnis maxime",
+    "name": "Ernie Jacobi",
+    "phone": "1-164-377-3788",
+    "email": "Marion.Abernathy@margot.ca",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Vickie",
+    "bio": "sint qui tempore accusamus ut alias numquam\nqui quas sed illum dignissimos maiores enim\nest et laborum magni voluptate",
+    "name": "Alfonzo Jenkins",
+    "phone": "733-197-7207 x85610",
+    "email": "Karlee_Kunde@presley.biz",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Chesley",
+    "bio": "illo rem aperiam\nveniam dolorem omnis doloremque numquam nihil architecto autem optio\nquaerat assumenda eum quia est corporis et",
+    "name": "Abelardo Beahan V",
+    "phone": "447-992-1620",
+    "email": "Mossie@stacy.ca",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Maddison",
+    "bio": "sunt vel sed iste enim et natus ut nulla\nqui porro doloribus et et officia dolor architecto\nbeatae repellat alias debitis maxime assumenda accusantium explicabo amet",
+    "name": "Emelia Lehner",
+    "phone": "682.460.3475 x158",
+    "email": "Neva.Walter@lysanne.co.uk",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Alejandrin_Gulgowski",
+    "bio": "facilis qui magni velit id\nvoluptas illum dicta et\nautem et quia eaque animi ad",
+    "name": "Ms. Lafayette Kuhlman",
+    "phone": "1-273-213-9541",
+    "email": "Gabriella.Yundt@cooper.io",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Valentine_Pfannerstill",
+    "bio": "enim itaque voluptatem esse voluptatem debitis voluptas\nsapiente sit molestiae consequatur\neum numquam et",
+    "name": "Elfrieda Pouros",
+    "phone": "925.503.2026 x51170",
+    "email": "Sammy@gussie.info",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Damaris_Greenholt",
+    "bio": "eum cum et adipisci qui laboriosam\nest omnis fugiat nisi a voluptatem dolor\nut et est facilis nulla veritatis",
+    "name": "Ms. Nadia McLaughlin",
+    "phone": "1-321-072-5679 x892",
+    "email": "Quinten.Frami@chanelle.net",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Alex",
+    "bio": "voluptates quo praesentium explicabo\naut et numquam officia quia perspiciatis temporibus aperiam saepe\nillo distinctio est vitae quis est nostrum molestiae est",
+    "name": "Katrina Bernhard",
+    "phone": "1-920-431-6819 x7899",
+    "email": "General@henriette.us",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Jaydon_Reilly",
+    "bio": "sit et enim dignissimos at molestias sint natus\nautem ipsa repellat maxime suscipit\nreprehenderit quam beatae quisquam eum dolores in magnam facere",
+    "name": "Ayden O'Connell",
+    "phone": "(867)011-9472 x6124",
+    "email": "Letha@daphnee.me",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Karlie.McLaughlin",
+    "bio": "doloremque molestiae doloribus autem molestiae placeat\naut architecto possimus enim voluptates delectus voluptatibus\ndolor aliquid quasi aut voluptatem distinctio",
+    "name": "Dixie Lakin",
+    "phone": "491.761.8823 x0614",
+    "email": "Humberto@mikayla.us",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Tyrique.Keeling",
+    "bio": "culpa sapiente nam amet praesentium deserunt consequatur provident\nconsequatur eius quis\nvoluptatem aliquam modi",
+    "name": "Manuel Wintheiser",
+    "phone": "1-915-563-9727",
+    "email": "Eldred_Zulauf@coby.me",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Tom",
+    "bio": "aut aut consequatur et magnam\nnam non perspiciatis\nquisquam sit sunt",
+    "name": "Declan Robel",
+    "phone": "(617)375-8532 x50392",
+    "email": "Enola@magali.name",
+    "tags": [
+      "red",
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Dejuan",
+    "bio": "sunt hic qui cum\ndeleniti et qui qui consequatur illum ratione asperiores a\ndelectus quia quo",
+    "name": "Connie McCullough",
+    "phone": "473.669.5568 x2489",
+    "email": "Derick_Breitenberg@stella.biz",
+    "tags": [
+      "green"
+    ]
+  },
+  {
+    "username": "Wayne",
+    "bio": "sit omnis nulla et sunt voluptatum qui\nconsequatur expedita autem illum id inventore\niste deleniti porro quaerat libero perspiciatis",
+    "name": "Gaetano Hane",
+    "phone": "604-337-2507",
+    "email": "Jarrell@laisha.com",
+    "tags": [
+      "blue"
+    ]
+  },
+  {
+    "username": "Teagan",
+    "bio": "distinctio iste porro eligendi eveniet non non molestias\nmagnam exercitationem esse ut aut\nconsequatur animi sint possimus saepe aperiam et",
+    "name": "Hugh Schamberger",
+    "phone": "1-631-497-3257 x267",
+    "email": "Crystel.Treutel@madelyn.org",
+    "tags": [
+      "red"
+    ]
+  },
+  {
+    "username": "Johanna.Hilpert",
+    "bio": "reprehenderit minima illum similique reiciendis sit in\nid sit ea beatae eum libero consequatur id voluptate\nincidunt dolores aut magnam dignissimos veniam error dicta in",
+    "name": "Sister Sanford",
+    "phone": "(729)392-2334",
+    "email": "Ena_Luettgen@alana.name",
+    "tags": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "username": "Samir.McGlynn",
+    "bio": "nihil repellat a ducimus eum ipsum\nnemo repellendus culpa eos ut cupiditate ut\nillo voluptas dolore illum consequatur qui dolores voluptatibus",
+    "name": "Louie Reichel",
+    "phone": "814.337.1017",
+    "email": "Justine.Mertz@alan.ca",
+    "tags": [
+      "red",
+      "green"
+    ]
+  },
+  {
+    "username": "Adaline",
+    "bio": "id necessitatibus aut vitae quibusdam architecto odit\nlaboriosam quas quasi modi fugiat exercitationem\naut velit ullam",
+    "name": "Felix Ratke",
+    "phone": "1-137-290-4630 x44681",
+    "email": "Aileen.Balistreri@vanessa.ca",
+    "tags": [
+      "red"
+    ]
+  },
+  {
+    "username": "Ferne_Herzog",
+    "bio": "voluptatem illo est quas ea voluptatum qui\naut et totam est\nsint rerum accusantium earum eum et aut",
+    "name": "Elmore Bauch",
+    "phone": "730.737.3378 x76355",
+    "email": "Vesta@christiana.io",
+    "tags": []
+  },
+  {
+    "username": "Helmer_Rosenbaum",
+    "bio": "error quo voluptas officiis cumque\nest ipsa nesciunt ut pariatur\nquo aut recusandae voluptatibus",
+    "name": "Mr. Wilfred Carter",
+    "phone": "(976)727-2431",
+    "email": "Arjun_Ondricka@germaine.net",
+    "tags": [
+      "green",
+      "blue"
+    ]
+  },
+  {
+    "username": "Alessia.Toy",
+    "bio": "eos et quos minus perferendis inventore nihil\nnostrum deleniti ut assumenda dolorem fugiat sunt\nipsum quisquam fuga",
+    "name": "Annabel McGlynn Jr.",
+    "phone": "518-443-3933",
+    "email": "Ezekiel@lowell.ca",
+    "tags": [
+      "red",
+      "blue"
+    ]
+  },
+  {
+    "username": "Mariah_Stokes",
+    "bio": "ipsum quisquam cumque beatae dolores quod et\niusto nulla possimus\net occaecati sunt commodi ex dolorum quos rerum ut",
+    "name": "Miss Keara Erdman",
+    "phone": "(192)399-1086 x2827",
+    "email": "Frederic.Mueller@corine.ca",
+    "tags": [
+      "green",
+      "blue"
+    ]
   }
 ]
