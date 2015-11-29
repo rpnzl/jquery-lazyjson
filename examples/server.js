@@ -29,9 +29,7 @@ function apiRequest(req, res) {
 }
 
 app.get('/json', apiRequest);
-app.get('*', function (req, res) {
-  res.send(fs.readFileSync(__dirname + '/index.html').toString());
-});
+app.use(express.static(__dirname));
 
 app.listen(3000, function () {
   console.log('[jquery-lazyjson:server] listening on port %s', 3000);

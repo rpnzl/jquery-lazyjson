@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <title>Basic | LazyJSON</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="/dist/lazyjson.js"></script>
+  <style>
+  .red { background-color: red; }
+  .green { background-color: green; }
+  .blue { background-color: blue; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <h1><strong>Basic</strong></h1>
+        <p></p>
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Tags</th>
+            </tr>
+          </thead>
+          <tbody class="list"></tbody>
+        </table>
+        <button class="u-full-width trigger">Load More</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/html" class="template">
+    <tr>
+      <td>{{name}}</td>
+      <td>{{tags}}</td>
+    </tr>
+  </script>
+
+  <script>
+  jQuery(function($){
+
+    // target
+    var lazyJSON = $('.list').lazyJSON({
+      api: {
+        uri: '/json?page={{page}}&size={{size}}',
+        transform: function (res) {
+          return res.data;
+        },
+        params: function (params) {
+          if (!Object.keys(params).length) {
+            params.page = 1;
+            params.size = 3;
+          } else {
+            params.page += 1;
+          }
+
+          return params;
+        }
+      },
+      template: {
+        html: $('.template').html()
+      }
+    });
+
+    // load more
+    $('.trigger').on('click', function (evt) {
+      evt.preventDefault();
+      lazyJSON.request();
+    });
+  });
+  </script>
+</body>
+</html>
