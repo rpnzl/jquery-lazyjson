@@ -4,6 +4,7 @@
   "description": "Easily load and display JSON from a valid API endpoint.",
   "main": "jquery.lazyjson.js",
   "scripts": {
+    "start": "node examples/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

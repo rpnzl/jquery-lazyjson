@@ -42,9 +42,11 @@
   jQuery(function($){
 
     // target
-    var lazyJSON = $('.list').lazyJSON({
+    var $list = $('.list');
+
+    var lazyJSON = $list.lazyJSON({
       api: {
-        uri: '/json?page={{page}}&size={{size}}',
+        url: '/json?page={{page}}&size={{size}}',
         transform: function (res) {
           return res.data;
         },
